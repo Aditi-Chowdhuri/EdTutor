@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta itemprop="description" content="Client-side WebRTC code samples">
+    <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
+    <meta itemprop="name" content="WebRTC code samples">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+
+    <title>Workout</title>
+
+    <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/video_train.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Profile</title>
+    <link rel="icon" href="../static/images/favicon.PNG">
+
+</head>
+<style>
+    #container{
+        width: 500px;
+        float: left;
+        margin-left: 50px;
+    }
+    #gum{
+        background-color: aliceblue;
+        margin-top: 110px;
+        height: 500px;
+    }
+    video{
+        width: 800px;
+        height: 600px;
+    }
+    #bt1{
+        width: 700px;
+        margin-top: 50px;
+    }
+    #bt1 button{
+        border-radius: 5em;
+        color: #4DB3E6;
+        background: #202124;
+        padding: 10px;
+        margin-right: 100px;
+        width: 120px;
+    }
+    .main{
+        float: left;
+        width: 800px;
+        height: 600px;
+        margin-top: 100px;
+        margin-left: 400px;
+    }
+    .main a{
+        margin-top: 280px;
+    }
+    .video{
+        width: 900px;
+        height: 600px;
+        margin-top: -100px;
+        margin-left: 0px;
+    }
+    #recorded{
+        margin-top: -600px;
+    }
+    #myfile{
+        margin-left: 1200px;
+        position: fixed;
+        top: 770px;
+        color: #4DB3E6;
+        cursor: pointer;
+
+    }
+    #myfile::-webkit-file-upload-button {
+    visibility: hidden;
+    }
+    #myfile::before {
+    content: 'Upload';
+    display: inline-block;
+    border: 1px solid #999;
+    border-radius: 5em;
+    padding: 10px;
+    padding-left: 5px;
+    padding-right: 125px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 10pt;
+    }
+    #myfile::before {
+    border-color: black;
+    background-color: #202124;
+    }
+    #myfile:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    }
+    #sub{
+        border-radius: 5em;
+        color: #4DB3E6;
+        background: #202124;
+        padding: 10px;
+        margin-left: 1500px;
+        position: fixed;
+        top: 770px;
+        width: 120px;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <div style=" margin-left: 10vw;">
+            <a href="/" style="float:left; margin:-20px;"><p><img style="width: 50px; height: 50px; margin:-20px;" src="../static/images/favicon.PNG" alt="" /></p></a>
+            <p>Categories</p>
+            <div class="search-container">
+                <form>
+                  <input type="text" placeholder="Search.." name="search">
+                  <p><i class="fa fa-search"></i></p>
+                </form>
+            </div>
+        </div>
+        <div style=" margin-right: 10vw;">
+            <a href="/profile"><img style="width: 25px; height: 25px;" src="../static/images/profileicon.png" alt="" /></a>
+            <a href="/cart1"><img style="width: 25px; height: 25px;" src="../static/images/cart (1).png" alt="" /></a>
+            <a href="/landing">My Tutorial</a>
+            <a href="/logout">Logout</a>
+        </div>        
+      </div>
+      
+
+<div id="container">
+
+    <video id="gum" playsinline autoplay muted></video>
+    <video id="recorded" playsinline loop></video>
+
+    <div id="bt1">
+        <button id="start">Start camera</button>
+        <button id="record" disabled>Start Recording</button>
+        <button id="download" disabled>Download</button>
+        <button id="play" disabled hidden>Play</button>
+    </div>
+    <div>
+        <form target="_self" method="POST" enctype="multipart/form-data">
+            <input type="file" id="myfile" name="myfile" accept=".webm">
+            <input type="submit" value = "Finish" id="sub">
+        </form>
+      </div>
+    <div hidden>
+        <h4>Media Stream Constraints options</h4>
+        <p>Echo cancellation: <input type="checkbox" id="echoCancellation"></p>
+    </div>
+
+    <div hidden>
+        <span id="errorMsg"></span>
+    </div>
+
+
+</div>
+<div class="main">
+    <div class="video">
+        <video id="vid2" width="800" height="600" controls>
+            <source src="../static/video/{{course['vurl']}}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+    </div>
+
+  </div>
+
+
+
+<!-- include adapter for srcObject shim -->
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="../static/js/main.js" async></script>
+<script src="../../../js/lib/ga.js"></script>
+
+</body>
+</html>

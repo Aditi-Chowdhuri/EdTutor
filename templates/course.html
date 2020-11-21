@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Courses</title>
+  <link rel="icon" href="../static/images/favicon.PNG">
+</head>
+
+<body>
+    <div class="topnav">
+        <div style=" margin-left: 10vw;">
+          <a href="/" style="float:left; margin:-20px;"><p><img style="width: 50px; height: 50px; margin:-20px;" src="../static/images/favicon.PNG" alt="" /></p></a>
+            <p>Categories</p>
+            <div class="search-container">
+                <form>
+                  <input type="text" placeholder="Search.." name="search">
+                  <p><i class="fa fa-search"></i></p>
+                </form>
+            </div>
+        </div>
+        <div style=" margin-right: 10vw;">
+          <a href="/profile"><img style="width: 25px; height: 25px;" src="../static/images/profileicon.png" alt="" /></a>
+          <a href="/cart1"><img style="width: 25px; height: 25px;" src="../static/images/cart (1).png" alt="" /></a>
+          <a href="/landing">My Tutorial</a>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
+      <div style="margin: 5vh;"></div>
+
+      <div style="margin: 5vh;">
+        <h2 style="color: #4DB3E6;">Resume Workout</h2>
+        <div class="row">
+            {% for i in cname%}
+                <a href="/warmup/{{course[i]['url']}}"><div class="column">
+                  <div class="card">
+                    <img src="../static/images/{{course[i]['img']}}" alt="" />
+                    <h2>{{i}}</h2>
+                    <p style="color: black;">{{course[i]["description"]}}</p>
+                  </div>
+                </div></a>
+            {% endfor %}
+        </div>
+      </div>
+      <div style="margin: 5vh;"></div>
+
+      <div style="margin: 5vh;">
+        <h2 style="color: #4DB3E6;">My Coaches</h2>
+        <div class="row">
+            <div class="column">
+              <div class="card">
+                <img src="../static/images/favicon.PNG" alt="" />
+                <h2>Shaashwat</h2>
+                <p style="color: black;">A gym trainer and a fitness enthusiast</p>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="card">
+                <img src="../static/images/favicon.PNG" alt="" />
+                <h2>Ragu</h2>
+                <p style="color: black;">Taikwando Black belt </p>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="card">
+                <img src="../static/images/favicon.PNG" alt="" />
+                <h2>Samshi</h2>
+                <p style="color: black;">Kathak performer and teacher</p>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="card">
+                <img src="../static/images/favicon.PNG" alt="" />
+                <h2>Prabhu</h2>
+                <p style="color: black;">Guitar expert, Singer</p>
+              </div>
+            </div>
+          </div>
+      </div>
+
+</body>
+
+</html>

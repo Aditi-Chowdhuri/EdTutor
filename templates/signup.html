@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../static/css/index.css">
+  <title>Sign up</title>
+  <link rel="icon" href="../static/images/favicon.PNG">
+</head>
+
+<body>
+    <div class="main_s">
+        <img style="width: 70px; height: 70px; margin-bottom: -11.5vh; margin-left: 5.1vw;" src="../static/images/favicon.PNG" alt="" />
+        <p class="sign" style="text-align: center;">Sign up</p>
+        <form class="form1" method="POST">
+        <input class="un" type="text" style="align-items: center;" placeholder="Name" name="name">
+        <input class="un" type="date" style="align-items: center;" placeholder="Date Of Birth" name="dob">
+        <input class="un" type="text" style="align-items: center;" placeholder="Mobile Number" name="phno">
+        <input class="un" type="email" style="align-items: center;" placeholder="Email" name="email">
+        <input class="un" type="text" style="align-items: center;" placeholder="Username" name="uname">
+        <div class="radio">
+            <input type="radio" id="student" name="studenttutor" value="student">
+            <label for="student">Student</label>
+            <input type="radio" id="tutor" name="studenttutor" value="tutor">
+            <label for="tutor">Tutor</label>
+        </div>
+        
+        
+        <input class="un" type="password" style="align-items: center;" placeholder="Password" name="pwd">
+        <input type="submit" class="submit" style="align-items: center;" value="Sign up"></form>
+        <p class="forgot" style="text-align: center;"><a href="/login">Already Have an Account?</a></p>
+    </div>
+     
+</body>
+
+</html>

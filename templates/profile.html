@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Profile</title>
+  <link rel="icon" href="../static/images/favicon.PNG">
+</head>
+
+<body>
+    <div class="topnav">
+        <div style=" margin-left: 10vw;">
+          <a href="/" style="float:left; margin:-20px;"><p><img style="width: 50px; height: 50px; margin:-20px;" src="../static/images/favicon.PNG" alt="" /></p></a>
+            <p>Categories</p>
+            <div class="search-container">
+                <form>
+                  <input type="text" placeholder="Search.." name="search">
+                  <p><i class="fa fa-search"></i></p>
+                </form>
+            </div>
+        </div>
+        <div style=" margin-right: 10vw;">
+          <a href="/profile"><img style="width: 25px; height: 25px;" src="../static/images/profileicon.png" alt="" /></a>
+          <a href="/cart1"><img style="width: 25px; height: 25px;" src="../static/images/cart (1).png" alt="" /></a>
+          <a href="/landing">My Tutorial</a>
+          <a href="/logout">Logout</a>
+        </div>        
+      </div>
+      
+      <div class="sidenav">
+        <p>{{userdet[0]}}</p>
+        <hr>    
+        <a href="#">Profile</a>
+        <a href="#">Account</a>
+        <a href="#">Payments</a>
+        <a href="#">Privacy</a>
+        <a href="#">Close Account</a>
+      </div>
+      
+      <div class="main" style = "margin-left: 34vw">
+        <h2>Basics:</h2>
+        <form method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" name="name" value="{{userdet['name']}}">
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" name="dob" value="{{userdet['dob']}}">
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" value="{{userdet['email']}}">
+            <label for="phno">Phone:</label><br>
+            <input type="text" name="phno" value="{{userdet['phno']}}">
+            <label for="bio">Bio:</label><br>
+            <textarea name="bio" rows="4" cols="50">{{userdet['bio']}}
+            </textarea><br><br>
+            <input type="submit" value="Submit">
+          </form> 
+      </div>
+</body>
+
+</html>

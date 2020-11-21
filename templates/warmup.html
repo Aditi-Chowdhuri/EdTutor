@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../static/css/video.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>{{course['name']}}</title>
+  <link rel="icon" href="../static/images/favicon.PNG">
+</head>
+
+<body>
+    <div class="topnav">
+        <div style=" margin-left: 10vw;">
+          <a href="/" style="float:left; margin:-20px;"><p><img style="width: 50px; height: 50px; margin:-20px;" src="../static/images/favicon.PNG" alt="" /></p></a>
+            <p>Categories</p>
+            <div class="search-container">
+                <form>
+                  <input type="text" placeholder="Search.." name="search">
+                  <p><i class="fa fa-search"></i></p>
+                </form>
+            </div>
+        </div>
+        <div style=" margin-right: 10vw;">
+          <a href="/profile"><img style="width: 25px; height: 25px;" src="../static/images/profileicon.png" alt="" /></a>
+          <a href="/cart/"><img style="width: 25px; height: 25px;" src="../static/images/cart (1).png" alt="" /></a>
+          <a href="/landing">My Tutorial</a>
+          <a href="/logout">Logout</a>
+        </div>        
+      </div>
+      
+      <div class="sidenav">
+        <p>{{course['name']}}</p>
+        <hr>    
+        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -1</a>
+        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -2</a>
+        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -3</a>
+        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -4</a>
+        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -5</a>
+      </div>
+      <div class="main">
+        <div class="video">
+          <video width="800" height="400" controls>
+            <source src="../static/video/{{course['vurl']}}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="main_p" style="width: 50%; font-size: 22px;">{{course['description']}}</p>
+        <a href="/practice/{{course['url']}}" class="main_a">Practice Now</a>
+        <a href="/cart?name={{course['name']}}" class="main_a" style="margin-top: 23vh;">Add to Cart</a>
+      </div>
+      
+</body>
+
+</html>
