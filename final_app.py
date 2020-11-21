@@ -4,6 +4,7 @@ import courses_db
 import os
 import posenet
 import main
+import numpy as np
 import segment
 
 app=Flask(__name__)
@@ -146,6 +147,11 @@ def loader2(cname):
 	global s
 	global score
 	s, score = main.compare_ref_recorded()
+	usr=fb.get('/users/', session['uname'])
+	num = usr["num"]
+	progress=[((i*num+j)/(num+1)) for i, j in zip(usr["progress"], score)]
+	fb.put('/users/%s'%(session['uname']), 'progress', progress)
+	fb.put('/users/%s'%(session['uname']), 'num', num+1)
 	return redirect('/stats/%s'%(cname))
 
 @app.route("/stats/<cname>", methods=['POST', 'GET'])
