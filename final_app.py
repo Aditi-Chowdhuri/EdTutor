@@ -100,6 +100,8 @@ def index():
 @app.route('/logout', methods=['POST','GET'])
 def logout():
 	session.clear()
+	global cart1
+	cart1=list()
 	return redirect('/')
 
 @app.route('/warmup/<cname>', methods=['POST', 'GET'])
@@ -213,6 +215,7 @@ def cart2():
 		_=session['uname']
 	except:
 		return redirect('/login')
+	global cart1
 	if request.args.get("name")!=None and request.args.get("name") not in cart1:
 		cart1.append(request.args.get("name"))
 	return render_template("shopping.html", cart=cart1, courses = fb.get("/", "courses"))

@@ -45,8 +45,9 @@
         height: 600px;
     }
     #bt1{
-        width: 700px;
+        width: 800px;
         margin-top: 50px;
+        float: left;
     }
     #bt1 button{
         border-radius: 5em;
@@ -59,7 +60,7 @@
     .main{
         float: left;
         width: 800px;
-        height: 600px;
+        height: 550px;
         margin-top: 100px;
         margin-left: 400px;
     }
@@ -76,11 +77,11 @@
         margin-top: -600px;
     }
     #myfile{
-        margin-left: 1200px;
-        position: fixed;
-        top: 770px;
+        margin-top: -5vh;
+        margin-left: 55vw;
         color: #4DB3E6;
         cursor: pointer;
+        float: left;
 
     }
     #myfile::-webkit-file-upload-button {
@@ -114,19 +115,34 @@
         color: #4DB3E6;
         background: #202124;
         padding: 10px;
-        margin-left: 1500px;
-        position: fixed;
-        top: 770px;
+        margin-top: -6vh;
+        margin-left: 75vw;
         width: 120px;
+        float: left;
     }
-    ul {
-  padding: 0px;
-  color: #FFF;
-}
-li {
-    font-size: 20px;
-    margin-left: 20px;
-}
+    @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+    #inst{
+        padding-left: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
+        height: 300px;
+        float: left;
+    }
+    ul{
+        width: 600px;
+    }
+
+    li{
+        font-family: 'Source Code Pro', monospace; 
+        font-weight: bolder;
+        font-size: 20;
+    }
+    h1{
+        font-family: 'Source Code Pro', monospace; 
+        font-weight: bolder;
+    }
 </style>
 <body>
     <div class="topnav">
@@ -181,15 +197,16 @@ li {
 
   </div>
   <br/>
-  <div style="margin-top: 74.8vh; background-color: #202124; width: 95%; border-radius: 4px; margin-left: auto;margin-right: auto; padding: 0 0 0 20px;">
-  <ul>
-    <li>Press webcam button to enable live feed. </li><br>
-    <li>Start Recording to perform a particular routine through your tutor's video. Match your routine as much as possible to avoid injury.</li><br>
-    <li>Upload the recorded video to analyze it and enable feedback</li><br>
-</ul>
+  <div id="inst" style="margin-top: 15vh; margin-left: 35 vw; background-color: blanchedalmond; border: 1px;">
+    <h1>Instructions:</h1>
+    <ul>
+        <li id="a"> Press webcam button to enable live feed. </li><br>
+        <li id="b">Start Recording to perform a particular routine through your tutor's video. Match your routine as much as possible to avoid injury.</li><br>
+        <li id="c">Upload the recorded video to analyze it and enable feedback</li><br>
+    </ul>
 </div>
 
-  <div id="vantaWaves"></div>
+  <div id="vantaWaves" style="min-height: 130vh;"></div>
   <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
   <script>

@@ -86,7 +86,7 @@ body {
 
 .c_container{
     margin-left: 15vw;
-    height: 150px;
+    height: 180px;
     width: 1000px;
     z-index: 1;
     top: 0;
@@ -94,8 +94,10 @@ body {
     background-color:#202124;
     overflow-x: hidden;
     overflow-y: hidden;
-    margin-top: 2vh;
+    margin-top: 5vh;
     border: 0px solid;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .c_container img{
