@@ -94,7 +94,8 @@ def index():
 	except KeyError:
 		return redirect('/')
 	cname, course = courses_db.read_data(fb)
-	return render_template('course.html', cname=cname, course=course)
+	categories = set([(course[i]['category']).title() for i in cname])
+	return render_template('course.html', cname=cname, course=course, categories=categories)
 	
 @app.route('/logout', methods=['POST','GET'])
 def logout():
@@ -111,6 +112,7 @@ def warmer(cname):
 			if courses[i]["url"]==cname:
 				course=courses[i]
 				f = True
+				fb.put('/courses/%s'%(course['name']), 'views', course['views']+1)
 		if not f:
 			return redirect('/landing')
 		return render_template('warmup.html', course=course)
