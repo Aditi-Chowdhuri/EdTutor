@@ -38,11 +38,28 @@ The artificial intelligence of our platform comes into action during the analysi
 ### Analysis:
 
 The AI models are supported by a **Dyamic Time Warping (DTW)** algorithm which compares the videos to provide feedback on the users accuracy. To avoid  distortions caused by height, weight, and size of a person the poses sequences are converted to vectors using **Pose2Vec**. All the analysis and conclusions are dislayed using gauge progress bars, bar charts and spider plots. 
+
+## Login Page
+<img src="https://github.com/sagnik106/EdTutor/blob/master/resources/login.png">
+
+## Catalog
+<img src="https://github.com/sagnik106/EdTutor/blob/master/resources/catalog.png" >
+
+## Course Page
+<img src="https://github.com/sagnik106/EdTutor/blob/master/resources/course.png">
+
+## AI analytics
+<img src="https://github.com/sagnik106/EdTutor/blob/master/resources/stats.png">
+
+## Profile Page
+<img src="https://github.com/sagnik106/EdTutor/blob/master/resources/profile.png">
+
+
   
 
 ## Prerequisites
 
-The following dependencies should be installed to run the code. There is also a requirements.txt file in the repi
+The following dependencies should be installed to run the code. There is also a requirements.txt file in the repository.
 
 ```
 pickle
@@ -63,6 +80,9 @@ MarkupSafe==1.1.1
 Werkzeug==0.15.2
 
 ```
+```
+$pip install -r requirements.txt
+```
 
 ## Challanges
 
@@ -76,7 +96,7 @@ During the implementation of our idea we faced issues tackling technology and co
 Download a python interpeter preferable a version beyond 3.0. Install the prerequisute libraries given above preferably using the latest version of pip/pip3. Run flask_app.py to start the flask backend. Open the link given to see the website. 
 
 ```
-$final_app.py
+$python3 final_app.py
 
 ```
 
