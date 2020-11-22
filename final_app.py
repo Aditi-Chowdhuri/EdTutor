@@ -80,11 +80,12 @@ def prof():
 		a["email"]=request.form["email"]
 		a["phno"]=request.form["phno"]
 		a["bio"]=request.form["bio"]
-		fb.put('/users/', request.form["uname"], a)
+		fb.put('/users/', session["uname"], a)
 		return redirect("/profile")
 	a.pop('pwd')
+	acc = fb.get('/users/%s'%(session['uname']), 'progress')
 	print(a)
-	return render_template("profile.html", userdet=a)
+	return render_template("profile.html", userdet=a, acc= acc, avg=sum(acc)/13.0)
 
 @app.route('/landing', methods=['POST', 'GET'])
 def index():
@@ -167,7 +168,9 @@ def statist(cname):
 				f = True
 		if not f:
 			return redirect('/landing')
-		return render_template('plot.html', s=s, score=score, course=course)
+		avg = sum(score)/13.0
+		prog = sum(fb.get('/users/%s'%(session['uname']), 'progress'))/13.0
+		return render_template('plot.html', s=s, score=score, course=course, perform_diff=prog-avg)
 	except KeyError:
 		return redirect('/login')
 

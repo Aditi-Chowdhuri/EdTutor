@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <div class="main">
-      <img style="width: 70px; height: 70px; margin-bottom: -11.5vh; margin-left: 5.1vw;" src="../static/images/favicon.PNG" alt="" />
+      <img style="width: 70px; height: 70px; margin-bottom: -9vh; margin-left: 5.1vw;" src="../static/images/favicon.PNG" alt="" />
         <p class="sign" style="text-align: center;">Log in</p>
         <form class="form1" method="POST">
         <input class="un" type="text" style="align-items: center;" placeholder="Username" name = "uname">
@@ -22,7 +22,24 @@
             <a href="/signup">Create a New Account</a></p>
     </div>
   </div>
-     
+</div>
+<div id="vantaWaves"></div>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.net.min.js"></script>
+<script>
+  VANTA.NET({
+    el: "#vantaWaves",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x8C55AA,
+    backgroundColor: 0x0b0e0b
+    });
+  </script>
 </body>
 
 </html>

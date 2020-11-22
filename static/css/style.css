@@ -3,7 +3,18 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to left, #606060, #212121 50%, #121212 100%);
+  
+}
+#vantaWaves{
+  position: absolute;
+  display: block;
+  min-width: 100%;
+  min-height: 290vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .topnav {
@@ -76,15 +87,16 @@ body {
 .sidenav {
     height: 600px;
     width: 200px;
-    position: fixed;
+    float: left;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: #292f32;
     overflow-x: hidden;
     padding-top: 20px;
-    margin-top: 15vh;
+    margin-top: 5vh;
     margin-left: 20vw;
+    margin-right: 10px;
     border: 0px solid;
     border-radius: 15px;
     opacity: 0.72;
@@ -119,18 +131,17 @@ body {
   .main {
     margin-left: 600px;
     height: 600px;
-    width: 700px;
-    position: fixed;
+    width: 910px;
     z-index: 1;
     top: 0;
     left: 0;
     background-color:#292f32;
     overflow-x: hidden;
     padding-top: 20px;
-    margin-top: 15vh;
+    margin-top: 5vh;
     border: 0px solid;
     border-radius: 15px;
-    opacity: 0.72;
+    opacity: 1;
   }
 
   .main h2{
@@ -150,7 +161,7 @@ body {
   }
 
   .main input[type=text],input[type=date],input[type=email],textarea{
-    width: 70%;
+    width: 90%;
     padding: 8px 10px;
     margin: 0px;
     margin-left: 35px;
@@ -174,7 +185,7 @@ body {
     padding-bottom: 10px;
     padding-top: 10px;
     font-family: 'Ubuntu', sans-serif;
-    margin-left: 55%;
+    margin-left: 35px;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
   }
@@ -221,3 +232,25 @@ body {
     border: 0px solid;
     border-radius: 20px;
   }
+
+  .ana{
+    margin-left: 20vw;
+    top: 0;
+    left: 0;
+    height: 550px;
+    width: 910px;
+    overflow-x: hidden;
+    padding: 0px 10px;
+    padding-top: 5px;
+    margin-top: 5vh;
+    font-size: 28px; /* Increased text to enable scrolling */   
+    background-color: #202124;
+    opacity: 1;
+    border-radius: 20px;
+  }
+
+  .ana p{
+    color: #4DB3E6;
+    margin-left: 10px;
+    font-size: 22px;
+}

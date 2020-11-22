@@ -9,6 +9,11 @@
   <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
   <title>Statistics</title>
   <link rel="icon" href="../static/images/favicon.PNG">
+  <style>
+      #vantaWaves{
+          height: 175vh;
+      }
+  </style>
 </head>
 
 <body>
@@ -31,7 +36,7 @@
         </div>        
       </div>
       
-      <div class="sidenav">
+      <!--div class="sidenav">
         <p>Warmup Dance Moves</p>
         <hr>    
         <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -1</a>
@@ -39,7 +44,7 @@
         <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -3</a>
         <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -4</a>
         <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -5</a>
-      </div>
+      </div-->
       <!-- <div class="vid_main">
         <div class="video_1">
             <video width="550" height="400" controls>
@@ -74,10 +79,12 @@
       </div>
       <div class="analysis">
           <p>Analysis</p>  
-          <p class="textarea" rows="8" cols="80" style="padding: 10px; color: white; font-size: 18px;">{{s}}</p>
+          <p class="textarea" rows="8" cols="80" style="padding: 10px; color: white; font-size: 18px; width: 98%;">{{s}}</p>
           <p>Spider Graph</p> 
           <div id='myDiv' class="graph"></div>
+          <p>Performance Improvement (from your Average Performance) : {{perform_diff}}%</p>
       </div>
+      <div id="vantaWaves"></div>
     <script>
         var x={{score}};
         var y=['shoulders','left hand','right hand','left forearm','right forearm', 'left side of the body','right side of the body', 'waist', 'left thigh','right thigh','left crus','right crus','head','shoulders'];
@@ -98,7 +105,24 @@
         };
         Plotly.newPlot("myDiv", data, layout);
     </script>
-      
+      <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
+      <script>
+        VANTA.FOG({
+            el: "#vantaWaves",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            highlightColor: 0xcf5fea,
+            midtoneColor: 0x434bf9,
+            lowlightColor: 0x6e41c7,
+            baseColor: 0x202020,
+            blurFactor: 0.79,
+            speed: 5.00
+            });
+        </script>
 </body>
 
 </html>

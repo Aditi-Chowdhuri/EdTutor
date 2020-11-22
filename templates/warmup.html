@@ -32,12 +32,8 @@
       
       <div class="sidenav">
         <p>{{course['name']}}</p>
-        <hr>    
-        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -1</a>
-        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -2</a>
-        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -3</a>
-        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -4</a>
-        <a href="#"><img style="width: 20px; height: 20px;" src="../static/images/play (1).png" alt="" /> Video -5</a>
+        <hr> 
+        <a href="#">{{course['description']}}</a>
       </div>
       <div class="main">
         <div class="video">
@@ -46,11 +42,28 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        <p class="main_p" style="width: 50%; font-size: 22px;">{{course['description']}}</p>
         <a href="/practice/{{course['url']}}" class="main_a">Practice Now</a>
-        <a href="/cart?name={{course['name']}}" class="main_a" style="margin-top: 23vh;">Add to Cart</a>
+        <a href="/cart?name={{course['name']}}" class="main_a" style="margin-left: 35vw;">Add to Cart</a>
       </div>
-      
+      <div id="vantaWaves"></div>
+      <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
+      <script>
+        VANTA.FOG({
+          el: "#vantaWaves",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          highlightColor: 0xcf5fea,
+          midtoneColor: 0x434bf9,
+          lowlightColor: 0x6e41c7,
+          baseColor: 0x202020,
+          blurFactor: 0.79,
+          speed: 5.00
+        });
+        </script>
 </body>
 
 </html>

@@ -5,6 +5,17 @@
  *  that can be found in the LICENSE file in the root of the source
  *  tree.
  */
+ #vantaWaves{
+  position: absolute;
+  display: block;
+  min-width: 100%;
+  min-height: 200vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
  button {
     margin: 0 3px 10px 0;
     padding-left: 2px;

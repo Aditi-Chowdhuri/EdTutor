@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../static/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  
   <title>Profile</title>
   <link rel="icon" href="../static/images/favicon.PNG">
 </head>
 
 <body>
+  <div id="vantaWaves"></div>
     <div class="topnav">
         <div style=" margin-left: 10vw;">
           <a href="/" style="float:left; margin:-20px;"><p><img style="width: 50px; height: 50px; margin:-20px;" src="../static/images/favicon.PNG" alt="" /></p></a>
@@ -30,17 +33,12 @@
         </div>        
       </div>
       
-      <div class="sidenav">
-        <p>{{userdet[0]}}</p>
+      <!--div class="sidenav">
+        <p>{{userdet['name']}}</p>
         <hr>    
-        <a href="#">Profile</a>
-        <a href="#">Account</a>
-        <a href="#">Payments</a>
-        <a href="#">Privacy</a>
-        <a href="#">Close Account</a>
-      </div>
+      </div-->
       
-      <div class="main" style = "margin-left: 34vw">
+      <div class="main" style = "margin-left: 20vw;">
         <h2>Basics:</h2>
         <form method="POST">
             <label for="name">Name:</label><br>
@@ -52,11 +50,92 @@
             <label for="phno">Phone:</label><br>
             <input type="text" name="phno" value="{{userdet['phno']}}">
             <label for="bio">Bio:</label><br>
-            <textarea name="bio" rows="4" cols="50">{{userdet['bio']}}
-            </textarea><br><br>
+            <textarea name="bio" rows="4" cols="50">{{userdet['bio']}}</textarea><br><br>
             <input type="submit" value="Submit">
           </form> 
       </div>
+
+          <div class="ana">
+            <p>Gauge</p> 
+            <div class="graph" style="display: flex;align-items: center;justify-content: center;">
+            <div id='mydiv' class="graph" style="width: 600px"></div> 
+              </div>
+          </div>
+            <div class="ana">
+            <p>Bar Graph</p> 
+            <div id='myDiv' class="graph"></div>
+        </div>
+        
+      <script>
+          var data = [
+    {
+      domain: { x: [0, 1], y: [0, 1] },
+      value: {{avg}},
+      title: { text: "Total Average Accuracy" },
+      type: "indicator",
+      mode: "gauge+number",
+      delta: { reference: 400 },
+      gauge: {bar:{color:"#4B466C"}, axis: { range: [null, 100] } ,
+    steps: [
+        { range: [0, 33.33], color: "#d479e0"},
+        { range: [33.33, 66.66], color: "#E1BEE7"},
+        { range: [66.66, 100], color: "#eed9f1"}
+      ]}
+    }
+    ];
+
+    var layout = { width: 600, height: 400};
+    Plotly.newPlot('mydiv', data, layout);
+          var trace1 = {
+    x: ['shoulders','left hand','right hand','left forearm','right forearm', 'left side of the body','right side of the body', 'waist', 'left thigh','right thigh','left crus','right crus','head','shoulders'],
+    y: {{acc}},
+    type: 'bar',
+    text: ['shoulders','left hand','right hand','left forearm','right forearm', 'left side of the body','right side of the body', 'waist', 'left thigh','right thigh','left crus','right crus','head','shoulders'],
+    marker: {
+      color: 'rgb(142,124,195)'
+    }
+    };
+
+    var data = [trace1];
+
+    var layout = {
+    title: 'Accuracy of each joint',
+    font:{
+      family: 'Raleway, sans-serif'
+    },
+    showlegend: false,
+    xaxis: {
+      tickangle: -45
+    },
+    yaxis: {
+      zeroline: false,
+      gridwidth: 2
+    },
+    bargap :0.05
+    };
+
+    Plotly.newPlot('myDiv', data, layout);
+
+      </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
+      <script>
+        VANTA.FOG({
+  el: "#vantaWaves",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  highlightColor: 0xcf5fea,
+  midtoneColor: 0x434bf9,
+  lowlightColor: 0x6e41c7,
+  baseColor: 0x202020,
+  blurFactor: 0.79,
+  speed: 5.00
+});
+        </script>   
 </body>
 
 </html>

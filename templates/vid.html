@@ -119,8 +119,15 @@
         top: 770px;
         width: 120px;
     }
+    ul {
+  padding: 0px;
+  color: #FFF;
+}
+li {
+    font-size: 20px;
+    margin-left: 20px;
+}
 </style>
-
 <body>
     <div class="topnav">
         <div style=" margin-left: 10vw;">
@@ -179,9 +186,34 @@
     </div>
 
   </div>
+  <br/>
+  <div style="margin-top: 74.8vh; background-color: #202124; width: 95%; border-radius: 4px; margin-left: auto;margin-right: auto; padding: 0 0 0 20px;">
+  <ul>
+    <li>Press webcam button to enable live feed. </li><br>
+    <li>Start Recording to perform a particular routine through your tutor's video. Match your routine as much as possible to avoid injury.</li><br>
+    <li>Upload the recorded video to analyze it and enable feedback</li><br>
+</ul>
+</div>
 
-
-
+  <div id="vantaWaves"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
+  <script>
+    VANTA.FOG({
+el: "#vantaWaves",
+mouseControls: true,
+touchControls: true,
+gyroControls: false,
+minHeight: 200.00,
+minWidth: 200.00,
+highlightColor: 0xcf5fea,
+midtoneColor: 0x434bf9,
+lowlightColor: 0x6e41c7,
+baseColor: 0x202020,
+blurFactor: 0.79,
+speed: 5.00
+});
+    </script>
 <!-- include adapter for srcObject shim -->
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 <script src="../static/js/main.js" async></script>
